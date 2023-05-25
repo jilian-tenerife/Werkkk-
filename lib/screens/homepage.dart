@@ -86,7 +86,8 @@ class _HomePageState extends State<HomePage> {
                 height: MediaQuery.of(context).size.height * 0.08,
               ),
               // Dismissible card
-              currentIndex < freelanceWorkDocs.length
+              currentIndex <
+                      (freelanceWorkDocs.length - 2) + (jobDocs.length - 1)
                   ? Dismissible(
                       key: Key(freelanceWorkDocs[currentIndex].id),
                       background: Container(
@@ -143,7 +144,42 @@ class _HomePageState extends State<HomePage> {
                                       ['description'],
                                   style: TextStyle(color: Colors.amber),
                                 ),
-                                // Add other fields you want to display
+                                Text(
+                                  freelanceWorkDocs[currentIndex]['area'],
+                                  style: TextStyle(color: Colors.amber),
+                                ),
+                                Text(
+                                  freelanceWorkDocs[currentIndex]['pay'],
+                                  style: TextStyle(color: Colors.amber),
+                                ),
+                                Text(
+                                  jobDocs[currentIndex]['job_title'],
+                                  style: TextStyle(color: Colors.amber),
+                                ),
+                                Text(
+                                  jobDocs[currentIndex]['job_specialization'],
+                                  style: TextStyle(color: Colors.amber),
+                                ),
+                                Text(
+                                  jobDocs[currentIndex]['job_category'],
+                                  style: TextStyle(color: Colors.amber),
+                                ),
+                                Text(
+                                  jobDocs[currentIndex]['company'],
+                                  style: TextStyle(color: Colors.amber),
+                                ),
+                                Text(
+                                  jobDocs[currentIndex]['address'],
+                                  style: TextStyle(color: Colors.amber),
+                                ),
+                                Text(
+                                  jobDocs[currentIndex]['salary'],
+                                  style: TextStyle(color: Colors.amber),
+                                ),
+                                Text(
+                                  jobDocs[currentIndex]['description'],
+                                  style: TextStyle(color: Colors.amber),
+                                ),
                               ],
                             ),
                           ),
