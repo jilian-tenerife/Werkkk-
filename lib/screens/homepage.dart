@@ -89,7 +89,10 @@ class _HomePageState extends State<HomePage> {
               currentIndex <
                       (freelanceWorkDocs.length - 2) + (jobDocs.length - 1)
                   ? Dismissible(
-                      key: Key(freelanceWorkDocs[currentIndex].id),
+                      key: Key((currentIndex <= freelanceWorkDocs.length - 2)
+                          ? freelanceWorkDocs[currentIndex].id
+                          : jobDocs[currentIndex - freelanceWorkDocs.length + 2]
+                              .id),
                       background: Container(
                         color: Color(0xff21A0A0),
                         child: Align(
@@ -136,50 +139,66 @@ class _HomePageState extends State<HomePage> {
                             child: Column(
                               children: [
                                 Text(
-                                  freelanceWorkDocs[currentIndex]['title'],
+                                  (currentIndex <= freelanceWorkDocs.length - 2)
+                                      ? freelanceWorkDocs[currentIndex]['title']
+                                      : jobDocs[currentIndex -
+                                          freelanceWorkDocs.length +
+                                          2]['job_title'],
                                   style: TextStyle(color: Colors.amber),
                                 ),
                                 Text(
-                                  freelanceWorkDocs[currentIndex]
-                                      ['description'],
+                                  (currentIndex <= freelanceWorkDocs.length - 2)
+                                      ? freelanceWorkDocs[currentIndex]
+                                          ['description']
+                                      : jobDocs[currentIndex -
+                                          freelanceWorkDocs.length +
+                                          2]['job_specialization'],
                                   style: TextStyle(color: Colors.amber),
                                 ),
                                 Text(
-                                  freelanceWorkDocs[currentIndex]['area'],
+                                  (currentIndex <= freelanceWorkDocs.length - 2)
+                                      ? freelanceWorkDocs[currentIndex]['area']
+                                      : jobDocs[currentIndex -
+                                          freelanceWorkDocs.length +
+                                          2]['job_category'],
                                   style: TextStyle(color: Colors.amber),
                                 ),
                                 Text(
-                                  freelanceWorkDocs[currentIndex]['pay'],
+                                  (currentIndex <= freelanceWorkDocs.length - 2)
+                                      ? freelanceWorkDocs[currentIndex]['pay']
+                                      : jobDocs[currentIndex -
+                                          freelanceWorkDocs.length +
+                                          2]['company'],
                                   style: TextStyle(color: Colors.amber),
                                 ),
-                                Text(
-                                  jobDocs[currentIndex]['job_title'],
-                                  style: TextStyle(color: Colors.amber),
-                                ),
-                                Text(
-                                  jobDocs[currentIndex]['job_specialization'],
-                                  style: TextStyle(color: Colors.amber),
-                                ),
-                                Text(
-                                  jobDocs[currentIndex]['job_category'],
-                                  style: TextStyle(color: Colors.amber),
-                                ),
-                                Text(
-                                  jobDocs[currentIndex]['company'],
-                                  style: TextStyle(color: Colors.amber),
-                                ),
-                                Text(
-                                  jobDocs[currentIndex]['address'],
-                                  style: TextStyle(color: Colors.amber),
-                                ),
-                                Text(
-                                  jobDocs[currentIndex]['salary'],
-                                  style: TextStyle(color: Colors.amber),
-                                ),
-                                Text(
-                                  jobDocs[currentIndex]['description'],
-                                  style: TextStyle(color: Colors.amber),
-                                ),
+                                // Text(
+                                //   jobDocs[currentIndex]['job_title'],
+                                //   style: TextStyle(color: Colors.amber),
+                                // ),
+                                // Text(
+                                //   jobDocs[currentIndex]['job_specialization'],
+                                //   style: TextStyle(color: Colors.amber),
+                                // ),
+                                // Text(
+                                //   jobDocs[currentIndex]['job_category'],
+                                //   style: TextStyle(color: Colors.amber),
+                                // ),
+                                // Text(
+                                //   jobDocs[currentIndex]['company'],
+                                //   style: TextStyle(color: Colors.amber),
+                                // ),
+                                // Text(
+                                //   jobDocs[currentIndex]['address'],
+                                //   style: TextStyle(color: Colors.amber),
+                                // ),
+                                // Text(
+                                //   jobDocs[currentIndex]['salary'],
+                                //   style: TextStyle(color: Colors.amber),
+                                // ),
+                                // Text(
+                                //   jobDocs[currentIndex]['description'],
+                                //   style: TextStyle(color: Colors.amber),
+                                // ),
                               ],
                             ),
                           ),
