@@ -3,8 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 
 import 'login.dart';
 
@@ -35,22 +33,22 @@ class _SignupState extends State<Signup> {
       );
 
       // Upload the user image to Firebase Storage
-      if (userImage != null) {
-        String userId = userCredential.user!.uid;
-        String imagePath = 'user_images/$userId.jpg';
+      // if (userImage != null) {
+      //   String userId = userCredential.user!.uid;
+      //   String imagePath = 'user_images/$userId.jpg';
 
-        UploadTask uploadTask =
-            FirebaseStorage.instance.ref().child(imagePath).putFile(userImage);
-        await uploadTask.whenComplete(() {});
-        String imageUrl =
-            await FirebaseStorage.instance.ref(imagePath).getDownloadURL();
+      //   UploadTask uploadTask =
+      //       FirebaseStorage.instance.ref().child(imagePath).putFile(userImage);
+      //   await uploadTask.whenComplete(() {});
+      //   String imageUrl =
+      //       await FirebaseStorage.instance.ref(imagePath).getDownloadURL();
 
-        // Save the image URL to the user's document in Firestore
-        await FirebaseFirestore.instance
-            .collection('users')
-            .doc(userId)
-            .set({'image_url': imageUrl}, SetOptions(merge: true));
-      }
+      //   // Save the image URL to the user's document in Firestore
+      //   await FirebaseFirestore.instance
+      //       .collection('users')
+      //       .doc(userId)
+      //       .set({'image_url': imageUrl}, SetOptions(merge: true));
+      // }
 
       // do something with the newly created user here
     } on FirebaseAuthException catch (e) {
@@ -64,16 +62,16 @@ class _SignupState extends State<Signup> {
     }
   }
 
-  Future<void> _takePicture() async {
-    final picker = ImagePicker();
-    final imageFile = await picker.pickImage(source: ImageSource.camera);
+  // Future<void> _takePicture() async {
+  //   final picker = ImagePicker();
+  //   final imageFile = await picker.pickImage(source: ImageSource.camera);
 
-    if (imageFile != null) {
-      setState(() {
-        _userImage = File(imageFile.path);
-      });
-    }
-  }
+  //   if (imageFile != null) {
+  //     setState(() {
+  //       _userImage = File(imageFile.path);
+  //     });
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -98,7 +96,7 @@ class _SignupState extends State<Signup> {
                       width: MediaQuery.of(context).size.width * 0.4,
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('assets/images/howaiu.png'),
+                          image: AssetImage('assets/images/kirby.jpg'),
                           fit: BoxFit
                               .cover, // Specify how the image should be fitted inside the box
                         ),
@@ -109,28 +107,28 @@ class _SignupState extends State<Signup> {
                 SizedBox(
                   height: screenHeight * 0.03,
                 ),
-                Container(
-                  width: screenWidth * 0.8,
-                  height: screenHeight * 0.2,
-                  child: GestureDetector(
-                    onTap: _takePicture,
-                    child: _userImage != null
-                        ? Image.file(_userImage!)
-                        : Neumorphic(
-                            style: NeumorphicStyle(
-                                depth: -7,
-                                intensity: 8,
-                                lightSource: LightSource.topRight,
-                                shape: NeumorphicShape.convex,
-                                color: baseColor),
-                            child: Icon(
-                              Icons.camera_alt,
-                              size: 50,
-                              color: Color(0xff5d7599),
-                            ),
-                          ),
-                  ),
-                ),
+                // Container(
+                //   width: screenWidth * 0.8,
+                //   height: screenHeight * 0.2,
+                //   child: GestureDetector(
+                //     onTap: _takePicture,
+                //     child: _userImage != null
+                //         ? Image.file(_userImage!)
+                //         : Neumorphic(
+                //             style: NeumorphicStyle(
+                //                 depth: -7,
+                //                 intensity: 8,
+                //                 lightSource: LightSource.topRight,
+                //                 shape: NeumorphicShape.convex,
+                //                 color: baseColor),
+                //             child: Icon(
+                //               Icons.camera_alt,
+                //               size: 50,
+                //               color: Color(0xff5d7599),
+                //             ),
+                //           ),
+                //   ),
+                // ),
                 SizedBox(
                   height: screenHeight * 0.03,
                 ),

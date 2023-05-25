@@ -40,7 +40,7 @@ class _LoginState extends State<Login> {
                     width: MediaQuery.of(context).size.width * 0.7,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage('assets/images/howaiu.png'),
+                        image: AssetImage('assets/images/kirby.jpg'),
                         fit: BoxFit
                             .cover, // Specify how the image should be fitted inside the box
                       ),
@@ -181,7 +181,7 @@ class _LoginState extends State<Login> {
                         if (userCredential.user != null) {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Homepage()),
+                            MaterialPageRoute(builder: (context) => HomePage()),
                           );
                         }
                       } on FirebaseAuthException catch (e) {
