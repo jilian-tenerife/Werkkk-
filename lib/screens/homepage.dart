@@ -1,16 +1,21 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+  List<String> cards = [
+    'Card1',
+    'Card2',
+    'Card3',
+    'Card4'
+  ]; // your list of cards
+
   @override
   Widget build(BuildContext context) {
     Color baseColor = Color(0xffFCFFF7);
@@ -63,68 +68,61 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.08,
               ),
-              Dismissible(
-                key: Key("uniqueKey"),
-                background: Container(
-                  color: Color(0xff21A0A0),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Icon(Icons.check, color: Colors.white),
-                    ),
-                  ),
-                ),
-                secondaryBackground: Container(
-                  color: Color(0xffE53D00),
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Icon(Icons.close, color: Colors.white),
-                    ),
-                  ),
-                ),
-                onDismissed: (direction) {
-                  if (direction == DismissDirection.endToStart) {
-                    print("Rejected");
-                  } else if (direction == DismissDirection.startToEnd) {
-                    print("Accepted");
-                  }
-                },
-                direction: DismissDirection.horizontal,
-                child: Container(
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  height: MediaQuery.of(context).size.height * 0.7,
-                  child: Neumorphic(
-                    style: NeumorphicStyle(
-                      depth: 7,
-                      shape: NeumorphicShape.convex,
-                      lightSource: LightSource.topLeft,
-                      intensity: 0.8,
-                      color: Color(0xffFCFFF7),
-                    ),
-                    child: Center(
-                      child: Text("Swipe me",
-                          style: TextStyle(color: Colors.amber)),
-                    ),
-                  ),
-                ),
-              ),
+              // Dismissible card
+              cards.length > 0
+                  ? Dismissible(
+                      key: Key(cards.last),
+                      background: Container(
+                        color: Colors.green,
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Icon(Icons.check, color: Colors.white),
+                          ),
+                        ),
+                      ),
+                      secondaryBackground: Container(
+                        color: Colors.red,
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Icon(Icons.close, color: Colors.white),
+                          ),
+                        ),
+                      ),
+                      onDismissed: (direction) {
+                        if (direction == DismissDirection.endToStart) {
+                          print("Rejected");
+                        } else if (direction == DismissDirection.startToEnd) {
+                          print("Accepted");
+                        }
+                        setState(() {
+                          cards.removeLast();
+                        });
+                      },
+                      direction: DismissDirection.horizontal,
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        height: MediaQuery.of(context).size.height * 0.7,
+                        child: Neumorphic(
+                          style: NeumorphicStyle(
+                            depth: 7,
+                            shape: NeumorphicShape.convex,
+                            lightSource: LightSource.topLeft,
+                            intensity: 0.8,
+                            color: Color(0xffFCFFF7),
+                          ),
+                          child: Center(
+                            child: Text(cards.last,
+                                style: TextStyle(color: Colors.amber)),
+                          ),
+                        ),
+                      ),
+                    )
+                  : Center(child: Text('No more cards')),
 
-              // Container(
-              //   width: MediaQuery.of(context).size.width * 0.9,
-              //   height: MediaQuery.of(context).size.height * 0.5,
-              //   child: Neumorphic(
-              //     style: NeumorphicStyle(
-              //       depth: 5,
-              //       shape: NeumorphicShape.convex,
-              //       lightSource: LightSource.topLeft,
-              //       intensity: 0.7,
-              //       color: Color(0xffc3acce),
-              //     ),
-              //   ),
-              // ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.05,
               ),

@@ -158,11 +158,43 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.0"
+  flutter_page_indicator:
+    dependency: transitive
+    description:
+      name: flutter_page_indicator
+      sha256: a5b2992228c2827b69faed3977681a3f5c313c7f13d72272decbb2923d1d7176
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
+  flutter_swipable:
+    dependency: "direct main"
+    description:
+      name: flutter_swipable
+      sha256: a341e0a7ea7a0d3a6efc753e0d0608462e702b01562cb3b0768c7d5fbb86d033
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.1"
+  flutter_swiper:
+    dependency: "direct main"
+    description:
+      name: flutter_swiper
+      sha256: e52a0e894abfa4099a5d4e5098a00597f3b55e25617cdd19e6fe6be5d24858c7
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.6"
   flutter_test:
     dependency: "direct dev"
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_tindercard:
+    dependency: "direct main"
+    description:
+      name: flutter_tindercard
+      sha256: cbfec3f6e7c4d176a7f1e2a3c5fb96cf08ea7bb57694b44fe5bb7cbbbdebb7aa
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.0"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -285,6 +317,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.4.16"
+  transformer_page_view:
+    dependency: transitive
+    description:
+      name: transformer_page_view
+      sha256: "2210531bc4148831061c575070173f32693415be8bbbf5bd2159a38f2adff61c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.6"
   typed_data:
     dependency: transitive
     description:

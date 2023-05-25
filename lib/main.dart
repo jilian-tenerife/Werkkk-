@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:freelancy/screens/freelancer.dart';
 import 'package:freelancy/screens/login.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:freelancy/screens/user.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
