@@ -51,15 +51,19 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.3,
                   ),
-                  Text(
-                    'WERK',
-                    style: TextStyle(
-                        fontSize: 45,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff046865)),
+                  Container(
+                    height: MediaQuery.of(context).size.width * 0.3,
+                    width: MediaQuery.of(context).size.width * 0.4,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/LOGO.png'),
+                        fit: BoxFit
+                            .cover, // Specify how the image should be fitted inside the box
+                      ),
+                    ),
                   ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.23,
+                    width: MediaQuery.of(context).size.width * 0.1,
                   ),
                   Neumorphic(
                     style: NeumorphicStyle(
@@ -76,14 +80,14 @@ class _HomePageState extends State<HomePage> {
                       alignment: Alignment.center,
                       child: const Icon(
                         Icons.person_2,
-                        color: Color(0xff5d7599),
+                        color: Color(0xff046865),
                       ),
                     ),
                   ),
                 ],
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.08,
+                height: MediaQuery.of(context).size.height * 0.02,
               ),
               // Dismissible card
               currentIndex <
@@ -138,13 +142,44 @@ class _HomePageState extends State<HomePage> {
                           child: Center(
                             child: Column(
                               children: [
+                                SizedBox(
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.08,
+                                ),
                                 Text(
                                   (currentIndex <= freelanceWorkDocs.length - 2)
                                       ? freelanceWorkDocs[currentIndex]['title']
                                       : jobDocs[currentIndex -
                                           freelanceWorkDocs.length +
                                           2]['job_title'],
-                                  style: TextStyle(color: Colors.amber),
+                                      color: Color(
+                                        0xff046865,
+                                      ),
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold),
+                                  textAlign: TextAlign.center,
+                                ),
+                                SizedBox(
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.03,
+                                ),
+                                Container(
+                                  height:
+                                      MediaQuery.of(context).size.width * 0.1,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.6,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image:
+                                          AssetImage('assets/images/lead.png'),
+                                      fit: BoxFit
+                                          .cover, // Specify how the image should be fitted inside the box
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.04,
                                 ),
                                 Text(
                                   (currentIndex <= freelanceWorkDocs.length - 2)
@@ -153,7 +188,16 @@ class _HomePageState extends State<HomePage> {
                                       : jobDocs[currentIndex -
                                           freelanceWorkDocs.length +
                                           2]['job_specialization'],
-                                  style: TextStyle(color: Colors.amber),
+                                  style: TextStyle(
+                                    color: Color(
+                                      0xff046865,
+                                    ),
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                                SizedBox(
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.02,
                                 ),
                                 Text(
                                   (currentIndex <= freelanceWorkDocs.length - 2)
@@ -161,7 +205,16 @@ class _HomePageState extends State<HomePage> {
                                       : jobDocs[currentIndex -
                                           freelanceWorkDocs.length +
                                           2]['job_category'],
-                                  style: TextStyle(color: Colors.amber),
+                                  style: TextStyle(
+                                      fontSize: 25,
+                                      color: Color(
+                                        0xff046865,
+                                      ),
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.02,
                                 ),
                                 Text(
                                   (currentIndex <= freelanceWorkDocs.length - 2)
@@ -169,7 +222,11 @@ class _HomePageState extends State<HomePage> {
                                       : jobDocs[currentIndex -
                                           freelanceWorkDocs.length +
                                           2]['company'],
-                                  style: TextStyle(color: Colors.amber),
+                                  style: TextStyle(
+                                    color: Color(
+                                      0xff046865,
+                                    ),
+                                  ),
                                 ),
                                 // Text(
                                 //   jobDocs[currentIndex]['job_title'],
@@ -205,10 +262,32 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     )
-                  : Center(child: Text('No more cards')),
-
+                  : Center(child: Text('Chat')),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.05,
+                height: MediaQuery.of(context).size.height * 0.03,
+              ),
+              NeumorphicButton(
+                onPressed: () {},
+                style: NeumorphicStyle(
+                  shape: NeumorphicShape.convex,
+                  boxShape: NeumorphicBoxShape.circle(),
+                  depth: 8,
+                  intensity: 0.7,
+                  lightSource: LightSource.topLeft,
+                  color: baseColor,
+                ),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.16,
+                  height: MediaQuery.of(context).size.width * 0.16,
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Chat",
+                    style: TextStyle(
+                        color: Color(
+                      0xff046865,
+                    )),
+                  ),
+                ),
               ),
             ],
           ),
