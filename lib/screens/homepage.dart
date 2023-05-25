@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -9,12 +10,28 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<String> cards = [
-    'Card1',
-    'Card2',
-    'Card3',
-    'Card4'
-  ]; // your list of cards
+  List<DocumentSnapshot> freelanceWorkDocs = [];
+  List<DocumentSnapshot> jobDocs = [];
+  int currentIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+
+  Future<void> fetchData() async {
+    // Retrieve documents from Firebase collections
+    QuerySnapshot freelanceWorkSnapshot =
+        await FirebaseFirestore.instance.collection('freelance_work').get();
+    QuerySnapshot jobSnapshot =
+        await FirebaseFirestore.instance.collection('job').get();
+
+    setState(() {
+      freelanceWorkDocs = freelanceWorkSnapshot.docs;
+      jobDocs = jobSnapshot.docs;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,11 +86,11 @@ class _HomePageState extends State<HomePage> {
                 height: MediaQuery.of(context).size.height * 0.08,
               ),
               // Dismissible card
-              cards.length > 0
+              currentIndex < freelanceWorkDocs.length
                   ? Dismissible(
-                      key: Key(cards.last),
+                      key: Key(freelanceWorkDocs[currentIndex].id),
                       background: Container(
-                        color: Colors.green,
+                        color: Color(0xff21A0A0),
                         child: Align(
                           alignment: Alignment.centerLeft,
                           child: Padding(
@@ -83,7 +100,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       secondaryBackground: Container(
-                        color: Colors.red,
+                        color: Color(0xffE53D00),
                         child: Align(
                           alignment: Alignment.centerRight,
                           child: Padding(
@@ -99,7 +116,7 @@ class _HomePageState extends State<HomePage> {
                           print("Accepted");
                         }
                         setState(() {
-                          cards.removeLast();
+                          currentIndex++;
                         });
                       },
                       direction: DismissDirection.horizontal,
@@ -115,8 +132,20 @@ class _HomePageState extends State<HomePage> {
                             color: Color(0xffFCFFF7),
                           ),
                           child: Center(
-                            child: Text(cards.last,
-                                style: TextStyle(color: Colors.amber)),
+                            child: Column(
+                              children: [
+                                Text(
+                                  freelanceWorkDocs[currentIndex]['title'],
+                                  style: TextStyle(color: Colors.amber),
+                                ),
+                                Text(
+                                  freelanceWorkDocs[currentIndex]
+                                      ['description'],
+                                  style: TextStyle(color: Colors.amber),
+                                ),
+                                // Add other fields you want to display
+                              ],
+                            ),
                           ),
                         ),
                       ),
