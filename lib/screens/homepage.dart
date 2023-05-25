@@ -135,50 +135,101 @@ class _HomePageState extends State<HomePage> {
                           child: Center(
                             child: Column(
                               children: [
+                                SizedBox(
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.08,
+                                ),
                                 Text(
                                   freelanceWorkDocs[currentIndex]['title'],
-                                  style: TextStyle(color: Colors.amber),
+                                  style: TextStyle(
+                                      color: Color(
+                                        0xff046865,
+                                      ),
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold),
+                                  textAlign: TextAlign.center,
                                 ),
                                 Text(
                                   freelanceWorkDocs[currentIndex]
                                       ['description'],
-                                  style: TextStyle(color: Colors.amber),
+                                  style: TextStyle(
+                                      color: Color(
+                                    0xff046865,
+                                  )),
                                 ),
                                 Text(
                                   freelanceWorkDocs[currentIndex]['area'],
-                                  style: TextStyle(color: Colors.amber),
+                                  style: TextStyle(
+                                      fontSize: 25,
+                                      color: Color(
+                                        0xff046865,
+                                      ),
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 Text(
                                   freelanceWorkDocs[currentIndex]['pay'],
-                                  style: TextStyle(color: Colors.amber),
+                                  style: TextStyle(
+                                    color: Color(
+                                      0xff046865,
+                                    ),
+                                  ),
                                 ),
                                 Text(
                                   jobDocs[currentIndex]['job_title'],
-                                  style: TextStyle(color: Colors.amber),
+                                  style: TextStyle(
+                                      color: Color(
+                                    0xff046865,
+                                  )),
                                 ),
                                 Text(
                                   jobDocs[currentIndex]['job_specialization'],
-                                  style: TextStyle(color: Colors.amber),
+                                  style: TextStyle(
+                                      color: Color(
+                                    0xff046865,
+                                  )),
                                 ),
                                 Text(
                                   jobDocs[currentIndex]['job_category'],
-                                  style: TextStyle(color: Colors.amber),
+                                  style: TextStyle(
+                                      color: Color(
+                                        0xff046865,
+                                      ),
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 Text(
                                   jobDocs[currentIndex]['company'],
-                                  style: TextStyle(color: Colors.amber),
+                                  style: TextStyle(
+                                      color: Color(
+                                        0xff046865,
+                                      ),
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 Text(
                                   jobDocs[currentIndex]['address'],
-                                  style: TextStyle(color: Colors.amber),
+                                  style: TextStyle(
+                                      color: Color(
+                                        0xff046865,
+                                      ),
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 Text(
                                   jobDocs[currentIndex]['salary'],
-                                  style: TextStyle(color: Colors.amber),
+                                  style: TextStyle(
+                                      color: Color(
+                                        0xff046865,
+                                      ),
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 Text(
                                   jobDocs[currentIndex]['description'],
-                                  style: TextStyle(color: Colors.amber),
+                                  style: TextStyle(
+                                      color: Color(
+                                    0xff046865,
+                                  )),
                                 ),
                               ],
                             ),
