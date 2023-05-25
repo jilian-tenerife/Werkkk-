@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:freelancy/screens/welcoming.dart';
 
 import 'forgotPass.dart';
 import 'homepage.dart';
@@ -30,7 +31,7 @@ class _LoginState extends State<Login> {
             children: [
               SizedBox(
                 height: MediaQuery.of(context).size.height *
-                    0.1, // 10% of screen height
+                    0.05, // 10% of screen height
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -40,7 +41,7 @@ class _LoginState extends State<Login> {
                     width: MediaQuery.of(context).size.width * 0.7,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage('assets/images/kirby.jpg'),
+                        image: AssetImage('assets/images/LOGO.png'),
                         fit: BoxFit
                             .cover, // Specify how the image should be fitted inside the box
                       ),
@@ -49,7 +50,7 @@ class _LoginState extends State<Login> {
                 ],
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.03,
+                height: MediaQuery.of(context).size.height * 0.01,
               ),
               Container(
                   width: MediaQuery.of(context).size.width *
@@ -74,7 +75,7 @@ class _LoginState extends State<Login> {
                           border: InputBorder.none,
                           hintText: 'Email',
                           hintStyle: const TextStyle(
-                            color: Color(0xff5d7599),
+                            color: Color(0xff046865),
                           ),
                           filled: true,
                           fillColor: baseColor,
@@ -114,7 +115,7 @@ class _LoginState extends State<Login> {
                           border: InputBorder.none,
                           hintText: 'Password',
                           hintStyle: TextStyle(
-                            color: Color(0xff5d7599),
+                            color: Color(0xff046865),
                           ),
                           filled: true,
                           fillColor: baseColor,
@@ -138,7 +139,7 @@ class _LoginState extends State<Login> {
                       'Forgot password?',
                       style: TextStyle(
                           fontSize: 16,
-                          color: Color(0xff5d7599),
+                          color: Color(0xff046865),
                           decoration: TextDecoration.underline,
                           decorationColor: Color(0xff5d7599)),
                     ),
@@ -181,7 +182,8 @@ class _LoginState extends State<Login> {
                         if (userCredential.user != null) {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => HomePage()),
+                            MaterialPageRoute(
+                                builder: (context) => welcomingPage()),
                           );
                         }
                       } on FirebaseAuthException catch (e) {
@@ -231,7 +233,7 @@ class _LoginState extends State<Login> {
                                         style: TextStyle(
                                             fontSize: 25,
                                             fontWeight: FontWeight.bold,
-                                            color: Color(0xff5d7599)),
+                                            color: Color(0xff046865)),
                                       ),
                                       SizedBox(
                                           height: MediaQuery.of(context)
@@ -264,7 +266,7 @@ class _LoginState extends State<Login> {
                                         child: Text(
                                           "OK",
                                           style: TextStyle(
-                                              color: Color(0xff5d7599)),
+                                              color: Color(0xff046865)),
                                         ),
                                       ),
                                     ],
@@ -290,7 +292,7 @@ class _LoginState extends State<Login> {
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                             color: Color(
-                                0xff5d7599)), // Set the font size of the text
+                                0xff046865)), // Set the font size of the text
                       ),
                     ),
                   ),
@@ -303,7 +305,7 @@ class _LoginState extends State<Login> {
                 child: Text(
                   'Sign Up',
                   style: TextStyle(
-                      color: Color(0xff5d7599),
+                      color: Color(0xff046865),
                       fontSize: 16,
                       decoration: TextDecoration.underline,
                       decorationColor: Color(0xff5d7599)),

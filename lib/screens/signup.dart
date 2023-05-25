@@ -92,11 +92,11 @@ class _SignupState extends State<Signup> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      height: MediaQuery.of(context).size.width * 0.4,
-                      width: MediaQuery.of(context).size.width * 0.4,
+                      height: MediaQuery.of(context).size.width * 0.5,
+                      width: MediaQuery.of(context).size.width * 0.6,
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('assets/images/kirby.jpg'),
+                          image: AssetImage('assets/images/LOGO.png'),
                           fit: BoxFit
                               .cover, // Specify how the image should be fitted inside the box
                         ),
@@ -153,7 +153,7 @@ class _SignupState extends State<Signup> {
                           border: InputBorder.none,
                           hintText: 'Username',
                           hintStyle: const TextStyle(
-                            color: Color(0xff5d7599),
+                            color: Color(0xff046865),
                           ),
                           filled: true,
                           fillColor: baseColor,
@@ -191,7 +191,7 @@ class _SignupState extends State<Signup> {
                           border: InputBorder.none,
                           hintText: 'Password',
                           hintStyle: TextStyle(
-                            color: Color(0xff5d7599),
+                            color: Color(0xff046865),
                           ),
                           filled: true,
                           fillColor: baseColor,
@@ -247,7 +247,7 @@ class _SignupState extends State<Signup> {
                           style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
-                              color: Color(0xff5d7599)),
+                              color: Color(0xff046865)),
                         ),
                       ),
                     ),
