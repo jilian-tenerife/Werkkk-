@@ -96,7 +96,7 @@ class _SignupState extends State<Signup> {
                       width: MediaQuery.of(context).size.width * 0.4,
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('assets/images/kirby.jpg'),
+                          image: AssetImage('assets/images/LOGO.png'),
                           fit: BoxFit
                               .cover, // Specify how the image should be fitted inside the box
                         ),
